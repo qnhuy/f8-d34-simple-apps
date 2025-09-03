@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        body,
+        html {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .output {
+            font-size: 60px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action {
+            font-size: 14px;
+            font-weight: 600;
+            padding: 4px 12px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            box-shadow: 2px 2px 4px #ccc;
+            opacity: 0.6;
+            transition: all 0.4s ease;
+        }
+
+        .action:hover {
+            opacity: 1;
+        }
+
+        .action-icon {
+            margin-right: 6px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <a href="../index.html" style="position: fixed; top: 10px; left: 10px; text-decoration: none; color: rgb(0, 0, 0); background-color: white; padding: 6px 10px; box-shadow: 0 0 6px #ccc; border-radius: 8px;">
+        <i class="fa-solid fa-house" style="font-size: 16px; margin-right: 2px;"></i>
+        Home
+    </a>
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/baf554e2d9.js" crossorigin="anonymous"></script>
+
+    <!-- link react and react dom -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- link babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        function Counter() {
+            const [value, setValue] = React.useState(0)
+
+            return <div className='wrapper'>
+                <h1 className="output" style={{ color: value > 0 ? 'green' : value < 0 ? 'red' : 'gray' }}>{value}</h1>
+                <div className="actions">
+                    <button className="action" onClick={() => setValue(value - 1)}>
+                        <i className="action-icon fa-solid fa-minus"></i>
+                        Decrease
+                    </button>
+                    <button className="action" onClick={() => setValue(value + 1)}>
+                        <i className="action-icon fa-solid fa-plus"></i>
+                        Increase
+                    </button>
+                    <button className="action" onClick={() => setValue(0)}>
+                        <i className="action-icon fa-solid fa-rotate-left"></i>
+                        Reset
+                    </button>
+                </div>
+            </div>
+        }
+
+        const app = <>
+            <Counter />
+        </>
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        root.render(app)
+    </script>
+</body>
+
+</html>
