@@ -2,7 +2,7 @@
     box-shadow: 0 0 4px #ccc;
     border-radius: 6px;
     padding: 14px;
-    width: 500px;
+    width: 520px;
 }
 
 .title {
@@ -14,8 +14,8 @@
 
 .image {
     border-radius: 4px;
-    width: 35%;
-    height: 230px;
+    width: 150px;
+    height: 200px;
     overflow: hidden;
 }
 
@@ -31,12 +31,18 @@
     gap: 20px;
 }
 
+.detail {
+    display: flex;
+    flex-direction: column;
+}
+
 .detail label {
     font-weight: 600;
 }
 
 .detail p {
     padding: 4px 0;
+    display: inline-block;
 }
 
 .loader {
