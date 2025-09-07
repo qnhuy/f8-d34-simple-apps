@@ -62,10 +62,7 @@ function TodoList() {
                 />
                 <button className="submit-btn"
                     onClick={handleAddTask}
-                    onKeyDown={e => {
-                        console.log(e.key)
-                        if (e.key === 'Enter') handleAddTask
-                    }}
+                    onKeyDown={e => e.key === 'Enter' ? handleAddTask : null}
                 >
                     Add
                 </button>
