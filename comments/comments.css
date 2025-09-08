@@ -7,6 +7,11 @@
     align-items: center;
 }
 
+.loader-box {
+    width: 100%;
+    padding: 50px 0;
+}
+
 .loader {
     width: 360px;
     height: 100px;
@@ -93,6 +98,7 @@
 }
 
 .comment-item {
+    position: relative;
     padding: 18px 0;
     border-bottom: 1px solid #ccc;
 }
@@ -141,7 +147,9 @@
     text-transform: capitalize;
 }
 
-.loader-box {
-    width: 100%;
-    padding: 50px 0;
+.comment-date {
+    position: absolute;
+    right: 0;
+    top: 18px;
+    font-size: 14px;
 }

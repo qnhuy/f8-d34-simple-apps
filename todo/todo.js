@@ -69,6 +69,12 @@ function TodoList() {
             </div>
 
             <ul className="task-list">
+                {tasks.length < 1 && (
+                    <div className="task-empty">
+                        <h3>Your task list is empty.</h3>
+                        <p>Add your first task!</p>
+                    </div>
+                )}
                 {tasks.map((task, index) => (
                     <li key={index} className={`task-item ${task.completed ? 'completed' : ''}`}>
                         <input type="checkbox" className="task-checkbox"

@@ -1,10 +1,11 @@
-
 function Comment() {
     const [comments, setComments] = React.useState([])
     const [loading, setLoading] = React.useState(true)
     const [name, setName] = React.useState('')
     const [email, setEmail] = React.useState('')
     const [comment, setComment] = React.useState('')
+
+    const date = [ '1 minute ago', '2 minutes ago', '5 minutes ago', '2 hours ago', '3 hours ago','1 day ago', '2 days ago', '3 days ago']
 
     React.useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/comments?postId=1')
@@ -19,6 +20,11 @@ function Comment() {
         setName('')
         setEmail('')
         setComment('')
+    }
+
+    function getRandomCommentDate() {
+        const index = Math.floor(Math.random() * date.length)
+        return date[index]
     }
 
     return (
@@ -67,6 +73,7 @@ function Comment() {
                                 <i className="user-email">{comment.email}</i>
                             </div>
                         </div>
+                        <p className="comment-date">{getRandomCommentDate()}</p>
                         <div className="comment-body">{comment.body}</div>
                     </li>
                 ))}
